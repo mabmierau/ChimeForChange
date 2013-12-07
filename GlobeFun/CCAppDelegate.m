@@ -14,10 +14,26 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.rootViewController = [[CCViewController alloc] init];
-    self.window.backgroundColor = [UIColor whiteColor];
+    CCViewController *viewController = [[CCViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+
+    self.window.rootViewController = navigationController;
+    self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
 
+    // appearance
+    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    if ([[ver objectAtIndex:0] intValue] >= 7) {
+        // #552A46
+//        85, 42, 70
+//        63,32,52
+//        navigationController.navigationBar.barTintColor = [UIColor colorWithRed:85/255.0 green:42/255.0 blue:70/255.0 alpha:0.25];
+        navigationController.navigationBar.barTintColor = [UIColor colorWithRed:63/255.0 green:32/255.0 blue:52/255.0 alpha:1];
+        navigationController.navigationBar.titleTextAttributes = @{UITextAttributeTextColor: [UIColor colorWithRed:248/255.0 green:174/255.0 blue:52/255.0 alpha:1.0]};
+        navigationController.navigationBar.translucent = NO;
+    }else {
+        navigationController.navigationBar.tintColor = [UIColor redColor];
+    }
     return YES;
 }
 

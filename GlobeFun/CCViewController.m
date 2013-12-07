@@ -38,15 +38,27 @@
 {
     [super viewDidLoad];
 
-    darkGreyColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.0];
+    darkGreyColor = [UIColor colorWithRed:24/255.0 green:24/255.0 blue:24/255.0 alpha:1.0];
     textColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1];
-    
+    self.title = @"Chime For Change";
+
     self.view.backgroundColor = darkGreyColor;
 
-    // square globe frame
-    CGRect globeFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width);
-    CGFloat yValue = globeFrame.size.height;
+    CGFloat yValue = 10.0;
+
+    // hide nav bar
+    self.navigationController.navigationBarHidden = YES;
+    CGFloat globeFrameSide = self.view.frame.size.width;
+    yValue = 0;
+
+//    // don't hide nav bar
+//    CGFloat globeFrameSide = 265.0;
+
+//    CGRect globeFrame = CGRectMake(0, 0, self.view.frame.size.width, 275);
+    CGRect globeFrame = CGRectMake((self.view.frame.size.width - globeFrameSide)/2.0, yValue, globeFrameSide, globeFrameSide);
+    yValue += globeFrame.size.height;
     
+
     globeView = [[UIView alloc] initWithFrame:globeFrame];
 
 //    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, yValue, self.view.frame.size.width, 20)];
@@ -81,7 +93,7 @@
     globeViewController.threadPerLayer = true;
 
     // sf
-    [globeViewController animateToPosition:WGCoordinateMakeWithDegrees( -90.230759, 15.783471) time:1.0];
+    [globeViewController animateToPosition:WGCoordinateMakeWithDegrees( -90.230759, 15.783471) time:0.5];
 
     globeViewController.height = 1;
 
@@ -207,7 +219,7 @@
 
 #pragma mark - Table View Delegate
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *object = [self.objects objectAtIndex:indexPath.row];
     float lng = ((NSNumber *)[object valueForKey:@"Lng"]).floatValue;
