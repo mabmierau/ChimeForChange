@@ -19,6 +19,20 @@
 		C80F339B18532AAC0068493A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F338318532AAC0068493A /* UIKit.framework */; };
 		C80F33A318532AAC0068493A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C80F33A118532AAC0068493A /* InfoPlist.strings */; };
 		C80F33A518532AAC0068493A /* GlobeFunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F33A418532AAC0068493A /* GlobeFunTests.m */; };
+		C80F33B618532DE80068493A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33B518532DE80068493A /* libc++.dylib */; };
+		C80F33B818532DF10068493A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33B718532DF10068493A /* CoreLocation.framework */; };
+		C80F33BA18532DFC0068493A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33B918532DFC0068493A /* libz.dylib */; };
+		C80F33BC18532E070068493A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33BB18532E070068493A /* libxml2.dylib */; };
+		C80F33BE18532E110068493A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33BD18532E110068493A /* libsqlite3.dylib */; };
+		C80F33C118532E5D0068493A /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F33C018532E5D0068493A /* CCViewController.m */; };
+		C80F33C31853312E0068493A /* WhirlyGlobeMaplyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33C21853312E0068493A /* WhirlyGlobeMaplyComponent.framework */; };
+		C80F33C5185331420068493A /* libWhirlyGlobeMaplyComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33C4185331420068493A /* libWhirlyGlobeMaplyComponent.a */; };
+		C80F33C718538C510068493A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33C618538C510068493A /* QuartzCore.framework */; };
+		C80F33CA18538CFA0068493A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33C918538CFA0068493A /* CFNetwork.framework */; };
+		C80F33CC18538D120068493A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80F33CB18538D120068493A /* SystemConfiguration.framework */; };
+		C80F33D1185397D60068493A /* geography-class.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = C80F33CD185392FA0068493A /* geography-class.mbtiles */; };
+		C80F33D2185397E00068493A /* world_web_mercator.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C80F33CF185394290068493A /* world_web_mercator.sqlite */; };
+		C80F33D41853B9C00068493A /* Objects.plist in Resources */ = {isa = PBXBuildFile; fileRef = C80F33D31853B9C00068493A /* Objects.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +62,21 @@
 		C80F33A018532AAC0068493A /* GlobeFunTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GlobeFunTests-Info.plist"; sourceTree = "<group>"; };
 		C80F33A218532AAC0068493A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C80F33A418532AAC0068493A /* GlobeFunTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobeFunTests.m; sourceTree = "<group>"; };
+		C80F33B518532DE80068493A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		C80F33B718532DF10068493A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C80F33B918532DFC0068493A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C80F33BB18532E070068493A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		C80F33BD18532E110068493A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C80F33BF18532E5D0068493A /* CCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCViewController.h; sourceTree = "<group>"; };
+		C80F33C018532E5D0068493A /* CCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCViewController.m; sourceTree = "<group>"; };
+		C80F33C21853312E0068493A /* WhirlyGlobeMaplyComponent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WhirlyGlobeMaplyComponent.framework; path = "GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2/WhirlyGlobeMaplyComponent.framework"; sourceTree = "<group>"; };
+		C80F33C4185331420068493A /* libWhirlyGlobeMaplyComponent.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWhirlyGlobeMaplyComponent.a; path = "GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2/WhirlyGlobeMaplyComponent.framework/Versions/A/libWhirlyGlobeMaplyComponent.a"; sourceTree = "<group>"; };
+		C80F33C618538C510068493A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C80F33C918538CFA0068493A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C80F33CB18538D120068493A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C80F33CD185392FA0068493A /* geography-class.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geography-class.mbtiles"; sourceTree = "<group>"; };
+		C80F33CF185394290068493A /* world_web_mercator.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = world_web_mercator.sqlite; sourceTree = "<group>"; };
+		C80F33D31853B9C00068493A /* Objects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Objects.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +84,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80F33CC18538D120068493A /* SystemConfiguration.framework in Frameworks */,
+				C80F33CA18538CFA0068493A /* CFNetwork.framework in Frameworks */,
+				C80F33C718538C510068493A /* QuartzCore.framework in Frameworks */,
+				C80F33C5185331420068493A /* libWhirlyGlobeMaplyComponent.a in Frameworks */,
+				C80F33C31853312E0068493A /* WhirlyGlobeMaplyComponent.framework in Frameworks */,
+				C80F33BE18532E110068493A /* libsqlite3.dylib in Frameworks */,
+				C80F33BC18532E070068493A /* libxml2.dylib in Frameworks */,
+				C80F33BA18532DFC0068493A /* libz.dylib in Frameworks */,
+				C80F33B818532DF10068493A /* CoreLocation.framework in Frameworks */,
+				C80F33B618532DE80068493A /* libc++.dylib in Frameworks */,
 				C80F338218532AAC0068493A /* CoreGraphics.framework in Frameworks */,
 				C80F338418532AAC0068493A /* UIKit.framework in Frameworks */,
 				C80F338018532AAC0068493A /* Foundation.framework in Frameworks */,
@@ -96,6 +135,16 @@
 		C80F337E18532AAC0068493A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C80F33CB18538D120068493A /* SystemConfiguration.framework */,
+				C80F33C918538CFA0068493A /* CFNetwork.framework */,
+				C80F33C618538C510068493A /* QuartzCore.framework */,
+				C80F33C4185331420068493A /* libWhirlyGlobeMaplyComponent.a */,
+				C80F33C21853312E0068493A /* WhirlyGlobeMaplyComponent.framework */,
+				C80F33BD18532E110068493A /* libsqlite3.dylib */,
+				C80F33BB18532E070068493A /* libxml2.dylib */,
+				C80F33B918532DFC0068493A /* libz.dylib */,
+				C80F33B718532DF10068493A /* CoreLocation.framework */,
+				C80F33B518532DE80068493A /* libc++.dylib */,
 				C80F337F18532AAC0068493A /* Foundation.framework */,
 				C80F338118532AAC0068493A /* CoreGraphics.framework */,
 				C80F338318532AAC0068493A /* UIKit.framework */,
@@ -109,8 +158,11 @@
 			children = (
 				C80F338E18532AAC0068493A /* CCAppDelegate.h */,
 				C80F338F18532AAC0068493A /* CCAppDelegate.m */,
+				C80F33BF18532E5D0068493A /* CCViewController.h */,
+				C80F33C018532E5D0068493A /* CCViewController.m */,
 				C80F339118532AAC0068493A /* Images.xcassets */,
 				C80F338618532AAC0068493A /* Supporting Files */,
+				C80F33CE185393810068493A /* resources */,
 			);
 			path = GlobeFun;
 			sourceTree = "<group>";
@@ -122,6 +174,7 @@
 				C80F338818532AAC0068493A /* InfoPlist.strings */,
 				C80F338B18532AAC0068493A /* main.m */,
 				C80F338D18532AAC0068493A /* GlobeFun-Prefix.pch */,
+				C80F33D31853B9C00068493A /* Objects.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -142,6 +195,15 @@
 				C80F33A118532AAC0068493A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C80F33CE185393810068493A /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				C80F33CD185392FA0068493A /* geography-class.mbtiles */,
+				C80F33CF185394290068493A /* world_web_mercator.sqlite */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,7 +283,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C80F338A18532AAC0068493A /* InfoPlist.strings in Resources */,
+				C80F33D41853B9C00068493A /* Objects.plist in Resources */,
 				C80F339218532AAC0068493A /* Images.xcassets in Resources */,
+				C80F33D1185397D60068493A /* geography-class.mbtiles in Resources */,
+				C80F33D2185397E00068493A /* world_web_mercator.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +307,7 @@
 			files = (
 				C80F339018532AAC0068493A /* CCAppDelegate.m in Sources */,
 				C80F338C18532AAC0068493A /* main.m in Sources */,
+				C80F33C118532E5D0068493A /* CCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,11 +424,29 @@
 		C80F33A918532AAC0068493A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mbrennan/Downloads/WhirlyGlobe-MaplyComponentDistribution_2_2",
+					"/Users/mbrennan/Code/GlobeFun/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2",
+					"/Users/mbrennan/Code/GlobeFun/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GlobeFun/GlobeFun-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2/WhirlyGlobeMaplyComponent.framework/Headers",
+				);
 				INFOPLIST_FILE = "GlobeFun/GlobeFun-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mbrennan/Code/GlobeFun/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2/WhirlyGlobeMaplyComponent.framework/Versions/A",
+					"/Users/mbrennan/Code/GlobeFun/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2/WhirlyGlobeMaplyComponent.framework/Versions/A",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -371,11 +455,29 @@
 		C80F33AA18532AAC0068493A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mbrennan/Downloads/WhirlyGlobe-MaplyComponentDistribution_2_2",
+					"/Users/mbrennan/Code/GlobeFun/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2",
+					"/Users/mbrennan/Code/GlobeFun/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GlobeFun/GlobeFun-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2/WhirlyGlobeMaplyComponent.framework/Headers",
+				);
 				INFOPLIST_FILE = "GlobeFun/GlobeFun-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mbrennan/Code/GlobeFun/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2/WhirlyGlobeMaplyComponent.framework/Versions/A",
+					"/Users/mbrennan/Code/GlobeFun/GlobeFun/WhirlyGlobe-MaplyComponentDistribution_2_2/WhirlyGlobeMaplyComponent.framework/Versions/A",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -442,6 +544,7 @@
 				C80F33AA18532AAC0068493A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C80F33AB18532AAC0068493A /* Build configuration list for PBXNativeTarget "GlobeFunTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +553,7 @@
 				C80F33AD18532AAC0068493A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

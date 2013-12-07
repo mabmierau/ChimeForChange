@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCViewController.h"
 
 @interface CCAppDelegate : UIResponder <UIApplicationDelegate>
 
