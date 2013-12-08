@@ -15,11 +15,20 @@
 @property (nonatomic, strong) WhirlyGlobeViewController *globeViewController;
 @property (nonatomic, strong) MaplyViewControllerLayer *baseLayer;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UIScrollView *detailView;
+@property (nonatomic, strong) CCDetailView *detailView;
 @property (nonatomic, strong) UIView *globeView;
 @property (nonatomic, strong) UIColor *darkGreyColor;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) NSArray *objects;
+@property (nonatomic, strong) NSDictionary *selectedObject;
+@property (nonatomic, assign) CGRect detailOffscreenFrame;
+@property (nonatomic, assign) CGRect detailFrame;
+@property (nonatomic, assign) CGRect tableOffscreenFrame;
+@property (nonatomic, assign) CGRect tableFrame;
+@property (nonatomic, assign) CGRect globeIndexFrame;
+@property (nonatomic, assign) CGRect globeDetailFrame;
+@property (nonatomic, assign) BOOL detailMode;
+@property (nonatomic, assign) NSTimeInterval transitionDelay;
 
 @end
 
@@ -33,14 +42,21 @@
 @synthesize darkGreyColor;
 @synthesize textColor;
 @synthesize objects;
+@synthesize selectedObject;
+@synthesize detailMode;
+@synthesize transitionDelay;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    selectedObject = nil;
+    detailMode = NO;
+    transitionDelay = 0.3;
+
     darkGreyColor = [UIColor colorWithRed:24/255.0 green:24/255.0 blue:24/255.0 alpha:1.0];
     textColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1];
-    self.title = @"Chime For Change";
+    self.title = @"";
 
     self.view.backgroundColor = darkGreyColor;
 
@@ -56,8 +72,11 @@
 
 //    CGRect globeFrame = CGRectMake(0, 0, self.view.frame.size.width, 275);
     CGRect globeFrame = CGRectMake((self.view.frame.size.width - globeFrameSide)/2.0, yValue, globeFrameSide, globeFrameSide);
+    self.globeIndexFrame = globeFrame;
+
+    CGFloat globeFrameDetailSide = 150;
+    self.globeDetailFrame = CGRectMake((self.view.frame.size.width - globeFrameDetailSide)/2.0, yValue, globeFrameDetailSide, globeFrameDetailSide);
     yValue += globeFrame.size.height;
-    
 
     globeView = [[UIView alloc] initWithFrame:globeFrame];
 
@@ -72,13 +91,22 @@
 
     [self initObjects];
 
-    tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, yValue, self.view.frame.size.width - 10.0, self.view.frame.size.height - globeFrame.size.height)];
+    self.tableFrame = CGRectMake(0, yValue, self.view.frame.size.width - 10.0, self.view.frame.size.height - globeFrame.size.height);
+    tableView = [[UITableView alloc] initWithFrame:self.tableFrame];
     tableView.backgroundColor = darkGreyColor;
     [self.tableView setSeparatorColor:[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1.0]];
     tableView.rowHeight = 75;
     tableView.dataSource = self;
     tableView.delegate = self;
 
+//    self.detailFrame = CGRectMake(0, 10.0+globeFrameDetailSide, self.view.frame.size.width, self.view.frame.size.height - (10.0 + globeFrameDetailSide));
+//    self.detailOffscreenFrame = CGRectMake(self.view.frame.size.width, 150, self.view.frame.size.width, self.view.frame.size.height - yValue);
+//    self.tableOffscreenFrame = CGRectMake(-1.0 * self.view.frame.size.width, yValue, self.view.frame.size.width - 10.0, self.view.frame.size.height - yValue);
+//    detailView = [[CCDetailView alloc] initWithFrame:self.detailFrame];
+////    detailView.frame = self.detailOffscreenFrame;
+//    [self.view addSubview:detailView];
+
+    // set up globe
     globeViewController = [[WhirlyGlobeViewController alloc] init];
     [globeView addSubview:globeViewController.view];
     globeViewController.view.frame = globeView.bounds;
@@ -174,10 +202,57 @@
     [globeViewController addShapes:cylinders desc:desc];
 }
 
+- (void)showDetail
+{
+    if (selectedObject != nil) {
+        self.detailMode = YES;
+        [detailView setDictionary:selectedObject];
+
+        [UIView animateWithDuration:transitionDelay animations:^{
+            detailView.frame = self.detailFrame;
+            tableView.frame = self.tableOffscreenFrame;
+        }
+                         completion:^(BOOL finished) {
+                             selectedObject = nil;
+                         }];
+    }
+}
+
+- (void)showTable
+{
+    [UIView animateWithDuration:transitionDelay animations:^{
+        detailView.frame = self.detailOffscreenFrame;
+        tableView.frame = self.tableFrame;
+    }
+                     completion:^(BOOL finished) {
+                         selectedObject = nil;
+                         self.detailMode = NO;
+                     }];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)handleDetailTap:(NSDictionary *)object
+{
+    self.selectedObject = object;
+
+    float lng = ((NSNumber *)[object valueForKey:@"Lng"]).floatValue;
+    float lat = ((NSNumber *)[object valueForKey:@"Lat"]).floatValue;
+    
+    [globeViewController animateToPosition:WGCoordinateMakeWithDegrees(lng, lat) time:0.25];
+
+    [self performSelector:@selector(showDetailViewController) withObject:nil afterDelay:0.5];
+}
+
+- (void)showDetailViewController
+{
+    CCDetailViewController *viewController = [[CCDetailViewController alloc] initWithDictionary:self.selectedObject];
+//    CCDetailViewController *viewController = [[CCDetailViewController alloc] initWithDictionary:object];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - Table View Data Source
@@ -221,11 +296,41 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *object = [self.objects objectAtIndex:indexPath.row];
-    float lng = ((NSNumber *)[object valueForKey:@"Lng"]).floatValue;
-    float lat = ((NSNumber *)[object valueForKey:@"Lat"]).floatValue;
+    [self handleDetailTap:[self.objects objectAtIndex:indexPath.row]];
 
-    [globeViewController animateToPosition:WGCoordinateMakeWithDegrees(lng, lat) time:0.6];
+    //    if (self.selectedObject == nil) {
+//        NSDictionary *object = [self.objects objectAtIndex:indexPath.row];
+//        self.selectedObject = object;
+//        float lng = ((NSNumber *)[object valueForKey:@"Lng"]).floatValue;
+//        float lat = ((NSNumber *)[object valueForKey:@"Lat"]).floatValue;
+//        
+//        [globeViewController animateToPosition:WGCoordinateMakeWithDegrees(lng, lat) time:0.6];
+//        [self performSelector:@selector(showDetail) withObject:nil afterDelay:0.6];
+//    }
+}
+
+#pragma mark - WhirlyGlobeViewControllerDelegate
+
+- (void)globeViewController:(WhirlyGlobeViewController *)viewC didTapAt:(MaplyCoordinate)coord
+{
+    if (self.detailMode) {
+        [self showTable];
+    }
+}
+
+- (void)handleSelection:(NSObject *)selectedObj
+{
+    if ([selectedObj isKindOfClass:[MaplyShapeCylinder class]]) {
+        MaplyShapeCylinder *cyl = (MaplyShapeCylinder *)selectedObj;
+        NSDictionary *object = (NSDictionary *)cyl.userObject;
+        [self handleDetailTap:object];
+    }
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = YES;
 }
 
 @end

@@ -31,6 +31,8 @@
         navigationController.navigationBar.barTintColor = [UIColor colorWithRed:63/255.0 green:32/255.0 blue:52/255.0 alpha:1];
         navigationController.navigationBar.titleTextAttributes = @{UITextAttributeTextColor: [UIColor colorWithRed:248/255.0 green:174/255.0 blue:52/255.0 alpha:1.0]};
         navigationController.navigationBar.translucent = NO;
+
+        navigationController.navigationBar.tintColor = [UIColor colorWithRed:248/255.0 green:174/255.0 blue:52/255.0 alpha:1.0];
     }else {
         navigationController.navigationBar.tintColor = [UIColor redColor];
     }

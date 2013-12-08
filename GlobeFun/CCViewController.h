@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "WhirlyGlobeComponent.h"
 //#import "MaplyComponent.h"
+#import "CCDetailView.h"
+#import "CCDetailViewController.h"
 
 @interface CCViewController : UIViewController <WhirlyGlobeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 

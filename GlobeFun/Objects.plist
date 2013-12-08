@@ -5,6 +5,8 @@
 	<key>Objects</key>
 	<array>
 		<dict>
+			<key>Index</key>
+			<string>0</string>
 			<key>Title</key>
 			<string>Open Schools for Brave Girls in Pakistan</string>
 			<key>Type</key>
@@ -27,6 +29,8 @@ Globally, more than 95% of the children who have attended BRAC’s early childho
 		<dict>
 			<key>Type</key>
 			<string>Story</string>
+			<key>Index</key>
+			<string>1</string>
 			<key>Title</key>
 			<string>How I Use Cell Phones to Bridge the Gap for the Voiceless</string>
 			<key>Contents</key>
@@ -67,6 +71,8 @@ Waiting out there are millions of Jyotis. I strive to reach them all with techno
 		<dict>
 			<key>Title</key>
 			<string>Win Back 6 Weeks of School Per Year for Girls in Kenya</string>
+			<key>Index</key>
+			<string>2</string>
 			<key>Type</key>
 			<string>Project</string>
 			<key>Contents</key>
@@ -92,6 +98,8 @@ This year we distributed 6,500 annual supplies of pads, underpants, and health e
 		<dict>
 			<key>Title</key>
 			<string>Breastfeeding: How Hard Can It Be?</string>
+			<key>Index</key>
+			<string>3</string>
 			<key>Type</key>
 			<string>Story</string>
 			<key>Contents</key>
