@@ -85,6 +85,7 @@
     self.titleLabel.textColor = [UIColor lightGrayColor];
     self.titleLabel.backgroundColor = darkGreyColor;
     self.titleLabel.numberOfLines = 0;
+    self.titleLabel.font = [self.titleLabel.font fontWithSize:16];
 //    self.titleLabel.sizeToFit = NO;
     [self.contentView addSubview:self.titleLabel];
     [self.titleLabel sizeToFit];
